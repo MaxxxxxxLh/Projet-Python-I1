@@ -1,10 +1,8 @@
-from test import *
-
-from test.chasseurHeros import *
-from test.guerisseurHeros import * 
-from test.guerrierHeros import *
-from test.mageHeros import *
-from test.troll import *
+from chasseurHeros import *
+from guerisseurHeros import * 
+from guerrierHeros import *
+from mageHeros import *
+from troll import *
 
 
 #initialisation des heros
