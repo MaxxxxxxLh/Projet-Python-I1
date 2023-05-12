@@ -57,7 +57,10 @@ def tourHeros(allies, ennemis): #attaquer les trolls
                 i.attaque(a)
             if not a.estEnVie():
                 ennemis.remove(a)
-            a.attaque(i)
+            if i.type == "dragon":
+                a.attaque(allies, i)
+            else:
+                a.attaque(i)
             if not i.estEnVie():
                 allies.remove(i)
         
