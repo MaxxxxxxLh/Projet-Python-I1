@@ -6,11 +6,12 @@ class mage():
         self.AOE = 2
         self.pseudo = "mage"
         self.type = "mage"
-    def attaque(self,ennemis):
+    def attaque(self,ennemis, monoCible):
         for i in ennemis:
-            i.PV -= randint(0,self.dommage)
-    def AOE(self,ennemi):
-        ennemi.PV -= randint(0,self.AOE)
+            if i == monoCible:
+                i.PV -= randint(0,self.dommage)
+            else:
+                i.PV -= randint(0, self.AOE)
     def estEnVie(self):
         if self.PV>0:
             return True
