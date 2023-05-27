@@ -1,5 +1,5 @@
 from dragon import *
-from troll import *
+from trollClass import *
 
 #on initialise le dragon, les trois trolls et la liste qui va contenir les trolls
 dragoneau = dragon()
