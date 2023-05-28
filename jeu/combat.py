@@ -2,14 +2,14 @@ from chasseurHeros import *
 from guerisseurHeros import * 
 from guerrierHeros import *
 from mageHeros import *
-from troll import *
-from dragon import *
+from trollClass import *
+from dragonClass import *
 
 #initialisation des heros
-monChasseur = chasseur()
-monGuerrier = guerrier()
-monGuerisseur = guerisseur()
-monMage = mage()
+monChasseur = chasseur(x,y,20,52)
+monGuerrier = guerrier(x,y,20,35)
+monGuerisseur = guerisseur(x,y,20,3)
+monMage = mage(x,y,20,70)
 
 
 
@@ -107,4 +107,3 @@ def jeu():
         combat(listeCombattants, compteur)
     
 
-jeu()

@@ -1,4 +1,4 @@
-from dragon import *
+from dragonClass import *
 from trollClass import *
 
 #on initialise le dragon, les trois trolls et la liste qui va contenir les trolls
