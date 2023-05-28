@@ -75,6 +75,9 @@ def combat(attaquant, compteur):
     vagueEnnemis = vagues(compteur)
     while listeCombattants != [] and vagueEnnemis != []:
         tourHeros(attaquant, vagueEnnemis)
+    if listeCombattants != []:
+        for i in listeCombattants:
+            i.level += 1
 
 
 

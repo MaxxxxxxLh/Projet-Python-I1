@@ -2,11 +2,12 @@ from random import *
 import pygame
 class guerisseur():
     def __init__(self, abscisse, ordonnee,placementAbscisse,placementOrdonnee):
-        self.PV = 10
-        self.dommage = 1
-        self.soin = 2
+        self.PV = 10 + 5*self.level
+        self.dommage = 1 + 1*self.level
+        self.soin = 2 + 1 *self.level
         self.pseudo = "guerrisseur"
         self.type = "guerrisseur"
+        self.level = 0
         self.image = pygame.image.load("animation/images/guerisseur-removebg-preview (1).png")
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
