@@ -8,27 +8,29 @@ from chasseurHeros import chasseur
 from dragonClass import dragon
 from combat import *
 from tourJoueur import *
-pygame.init()
 
 
-ecran = pygame.display.set_mode()
-
-x, y = ecran.get_size()
-
-
-
-
-
-background = pygame.image.load("animation/images/BG.jpg")
-background = pygame.transform.scale(background, (x,y))
-
-continuer = True
-numeroDeVagues = 1
-
-compteur = 0
-
-def game(numeroDeVagues):
+def game():
+    numeroDeVagues = 1
     while numeroDeVagues !=5:
+        pygame.init()
+
+
+        ecran = pygame.display.set_mode()
+
+        x, y = ecran.get_size()
+
+
+
+
+
+        background = pygame.image.load("animation/images/BG.jpg")
+        background = pygame.transform.scale(background, (x,y))
+
+        continuer = True
+        
+
+        compteur = 0
         #initialisation des heros
         monChasseur = chasseur(x,y,20,52)
         monGuerrier = guerrier(x,y,20,35)
@@ -37,25 +39,27 @@ def game(numeroDeVagues):
         combattants = {"chasseur": monChasseur, "guerrier": monGuerrier, "guerisseur": monGuerisseur, "mage" : monMage} #mettre les différents heros dans un dictionnaire
         listeCombattants = list(combattants.values()) #créer une liste avec les combattants en vie
         vaguesEnnemi = vagues(numeroDeVagues,x,y)
-        combat(vaguesEnnemi,compteur, continuer, listeCombattants)
+        combat(vaguesEnnemi,compteur, continuer, listeCombattants,ecran,background)
         if listeCombattants == []:
             break
         else:
             numeroDeVagues += 1
             for i in listeCombattants:
                 i.level += 1
+    pygame.quit()
         
 
     
-def combat(vaguesEnnemi,compteur, continuer, listeCombattants):
+def combat(vaguesEnnemi,compteur, continuer, listeCombattants, ecran, background):
     while continuer:
         
         ecran.blit(background, (0,0))
         for i in vaguesEnnemi:
             ecran.blit(i.resize,i.rect)
+            i.barreHP(background)
         for j in listeCombattants:
             ecran.blit(j.resize,j.rect)
-            
+            j.barreHP(background)
         pygame.display.flip()
         
         for event in pygame.event.get():
@@ -69,13 +73,15 @@ def combat(vaguesEnnemi,compteur, continuer, listeCombattants):
                     clicked_sprites = [s for s in vaguesEnnemi if s.rect.collidepoint(pos)]
                     for i in vaguesEnnemi:
                         if clicked_sprites[0].pseudo == i.pseudo:  
-                            tourHeros(choixPersonnage(compteur,listeCombattants),listeCombattants, vaguesEnnemi,i)
+                            a = choixPersonnage(compteur,listeCombattants)
+                            tourHeros(a,listeCombattants, vaguesEnnemi,i)
+                        i.barreHP(background)
+                        a.barreHP(background)
                     if vaguesEnnemi == [] or listeCombattants == []:
                         continuer = False
                 except:
                     pass
                 
-game(numeroDeVagues)
+game()
 
         
-pygame.quit()
