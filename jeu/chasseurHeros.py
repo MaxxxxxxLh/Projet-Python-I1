@@ -2,10 +2,10 @@ from random import *
 import pygame
 class chasseur():
     def __init__(self,abscisse,ordonnee,placementAbscisse,placementOrdonnee):
+        self.level = 0
         self.PV = 10 + 5*self.level
         self.dommage = 3 + 1*self.level
         self.fleche = 5
-        self.level = 0
         self.pseudo = "chasseur"
         self.type = "chasseur"
         self.image = pygame.image.load("animation/images/chasseur-removebg-preview.png")

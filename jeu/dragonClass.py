@@ -1,11 +1,12 @@
 from random import *
 import pygame
 class dragon():
-    def __init__(self,abscisse,ordonnee,placementAbscisse,placementOrdonnee):
+    def __init__(self,abscisse,ordonnee,placementAbscisse,placementOrdonnee,pseudo):
         self.PV = 15
         self.dommage = randint(0,6)
         self.AOE = randint(0,2)
-        self.pseudo = "dragon"
+        self.pseudo = pseudo
+        self.type = "dragon"
         self.image = pygame.image.load("animation/images/dragon-removebg-preview.png")
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
@@ -20,3 +21,8 @@ class dragon():
                 attaquant.PV -= randint(0,self.dommage)
             else:
                 i.PV -= randint(0,self.AOE)
+    def estEnVie(self):
+        if self.PV>0:
+            return True
+        else:
+            return False

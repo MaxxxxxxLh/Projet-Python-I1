@@ -2,12 +2,12 @@ from random import *
 import pygame
 class mage():
     def __init__(self,abscisse,ordonnee,placementAbscisse,placementOrdonnee):
+        self.level = 0
         self.PV = 10 + 5*self.level
         self.dommage = 4 + 2 * self.level
         self.AOE = 2 + 1*self.level
         self.pseudo = "mage"
         self.type = "mage"
-        self.level = 0
         self.image = pygame.image.load("animation/images/mage-removebg-preview.png")
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height

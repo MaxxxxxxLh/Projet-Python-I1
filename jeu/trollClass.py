@@ -2,12 +2,13 @@ from random import *
 import pygame
 
 class troll(pygame.sprite.Sprite):
-    def __init__(self,abscisse,ordonnee,placementAbscisse,placementOrdonnee):
+    def __init__(self,abscisse,ordonnee,placementAbscisse,placementOrdonnee,pseudo):
         super().__init__()
         self.PV = 5
         self.dommage = 4
         self.attaqueChasseur = 2
-        self.pseudo = "troll"
+        self.pseudo = pseudo
+        self.type="ennemi"
         self.image = pygame.image.load("animation/images/trollv2-removebg-preview.png")
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
