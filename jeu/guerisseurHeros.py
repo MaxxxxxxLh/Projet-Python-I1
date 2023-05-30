@@ -6,7 +6,7 @@ class guerisseur():
         self.PV = 10 + 5*self.level
         self.maxPV = self.PV
         self.dommage = 1 + 1*self.level
-        self.soin = 2 + 1 *self.level
+        self.heal = 2 + 1 *self.level
         self.pseudo = "guerrisseur"
         self.type = "guerrisseur"
         self.image = pygame.image.load("animation/images/guerisseur-removebg-preview (1).png")
@@ -20,7 +20,9 @@ class guerisseur():
     def attaque(self,ennemi):
         ennemi.PV -= randint(0,self.dommage)
     def soin(self,allie):
-        allie.PV += self.soin
+        allie.PV += self.heal
+        if allie.PV> allie.maxPV:
+            allie.PV = allie.maxPV
     def estEnVie(self):
         if self.PV>0:
             return True

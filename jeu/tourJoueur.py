@@ -1,6 +1,5 @@
 def choixPersonnage(compteur, listeAttaquant):
     for i in range(len(listeAttaquant)):
-        if compteur == i%len(listeAttaquant) :
-            compteur += 1
+        if i == compteur%len(listeAttaquant) :
             return listeAttaquant[i]
     
