@@ -8,7 +8,7 @@ from chasseurHeros import chasseur
 from dragonClass import dragon
 from combat import *
 from tourJoueur import *
-
+import time
 
 def game():
     numeroDeVagues = 1
@@ -35,7 +35,7 @@ def game():
         #initialisation des heros
         monChasseur = chasseur(x,y,20,52)
         monGuerrier = guerrier(x,y,20,35)
-        monGuerisseur = guerisseur(x,y,20,3)
+        monGuerisseur = guerisseur(x,y,20,15)
         monMage = mage(x,y,20,70)
         combattants = {"chasseur": monChasseur, "guerrier": monGuerrier, "guerisseur": monGuerisseur, "mage" : monMage} #mettre les différents heros dans un dictionnaire
         listeCombattants = list(combattants.values()) #créer une liste avec les combattants en vie
@@ -136,6 +136,22 @@ def combat(vaguesEnnemi,compteur, continuer, listeCombattants, ecran, background
                 except:
                     pass
                 
-game()
+def ecranVictoire():
+    pygame.init()
+    ecran = pygame.display.set_mode()
+
+    x, y = ecran.get_size()
+    screen = pygame.image.load("animation/images/EcranVictoire.jpg")
+    screen = pygame.transform.scale(screen,(x,y))
+    continuer = True
+    while continuer:
+        
+        ecran.blit(screen,(0,0))
+        pygame.display.flip()
+        time.sleep(5)
+        continuer = False
+    pygame.quit()
+
+ecranVictoire()
 
         

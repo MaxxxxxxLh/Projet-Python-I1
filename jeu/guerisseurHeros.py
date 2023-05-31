@@ -9,7 +9,7 @@ class guerisseur():
         self.heal = 2 + 1 *self.level
         self.pseudo = "guerrisseur"
         self.type = "guerrisseur"
-        self.image = pygame.image.load("animation/images/guerisseur-removebg-preview (1).png")
+        self.image = pygame.image.load("animation/images/guerisseuse-removebg-preview.png")
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
         self.auto = (abscisse*10/100)/self.width
