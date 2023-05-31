@@ -13,12 +13,14 @@ def tourHeros(attaquant,allies, ennemis, cibleEnnemis): #attaquer les trolls
                 cibleEnnemis.attaque(allies, attaquant)
             else:
                 cibleEnnemis.attaque(attaquant)
-                
+              
         else:
             ennemis.remove(cibleEnnemis)
+            
         if not attaquant.estEnVie():
             allies.remove(attaquant)
-        
+            
+       
         
         
 def choisirEnnemis(cible, vague):

@@ -28,10 +28,3 @@ class mage():
             return True
         else:
             return False
-    def barreHP(self,background):
-        barreCouleur = (71,209,71)
-        barreCouleurFond = (230,0,0)
-        positionBarre = [self.rect.x, self.rect.y, (self.PV/self.maxPV)*self.rect.width, self.rect.height*5/100]
-        positionBarreFond = [self.rect.x, self.rect.y, self.rect.width, self.rect.height*5/100]
-        pygame.draw.rect(background,barreCouleurFond,positionBarreFond)
-        pygame.draw.rect(background,barreCouleur,positionBarre)

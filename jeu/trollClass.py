@@ -1,4 +1,5 @@
 from random import *
+
 import pygame
 
 class troll(pygame.sprite.Sprite):
@@ -18,6 +19,7 @@ class troll(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = abscisse*placementAbscisse/100
         self.rect.y = ordonnee*placementOrdonnee/100
+        
     def attaque(self,ennemi):
         if ennemi.type == "chasseur":
             ennemi.PV -= randint(0,self.attaqueChasseur)
@@ -28,10 +30,4 @@ class troll(pygame.sprite.Sprite):
             return True
         else:
             return False
-    def barreHP(self,background):
-        barreCouleur = (71,209,71)
-        barreCouleurFond = (230,0,0)
-        positionBarre = [self.rect.x, self.rect.y, (self.PV/self.maxPV)*self.rect.width, self.rect.height*5/100]
-        positionBarreFond = [self.rect.x, self.rect.y, self.rect.width, self.rect.height*5/100]
-        pygame.draw.rect(background,barreCouleurFond,positionBarreFond)
-        pygame.draw.rect(background,barreCouleur,positionBarre)
+    
