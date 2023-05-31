@@ -7,13 +7,13 @@ def tourHeros(attaquant,allies, ennemis, cibleEnnemis): #attaquer les trolls
             attaquant.attaque(ennemis,cibleEnnemis)
         else:
             attaquant.attaque(cibleEnnemis)
-            print(cibleEnnemis.PV)
+            
         if cibleEnnemis.estEnVie():
             if cibleEnnemis.type == "dragon":
                 cibleEnnemis.attaque(allies, attaquant)
             else:
                 cibleEnnemis.attaque(attaquant)
-                print(attaquant.PV)
+                
         else:
             ennemis.remove(cibleEnnemis)
         if not attaquant.estEnVie():

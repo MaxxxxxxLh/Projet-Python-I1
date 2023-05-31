@@ -55,6 +55,8 @@ def game():
     pygame.quit()
         
 
+   
+
     
 def combat(vaguesEnnemi,compteur, continuer, listeCombattants, ecran, background,listePersos,numeroDeVagues,x,y):
     gueri = False
@@ -101,7 +103,6 @@ def combat(vaguesEnnemi,compteur, continuer, listeCombattants, ecran, background
                 pos = pygame.mouse.get_pos()
                 try:
                     clicked_sprites = [s for s in listePersos if s.rect.collidepoint(pos)]
-                    #a = choixPersonnage(compteur,listeCombattants)
                     a = choixPersonnage(compteur,listeCombattants)
                     
                     if a.type == "guerrisseur":
@@ -110,8 +111,8 @@ def combat(vaguesEnnemi,compteur, continuer, listeCombattants, ecran, background
                                 if clicked_sprites[0].pseudo == i.pseudo:
                                     tourHeros(a,listeCombattants, vaguesEnnemi,i)
                                     compteur += 1
-                                    i.barreHP(background)
                                     gueri = False
+                                i.barreHP(background)
                         else:
                             for hero in listeCombattants:
                                 if  clicked_sprites[0].pseudo == hero.pseudo:
@@ -124,8 +125,11 @@ def combat(vaguesEnnemi,compteur, continuer, listeCombattants, ecran, background
                             if clicked_sprites[0].pseudo == i.pseudo:
                                 tourHeros(a,listeCombattants, vaguesEnnemi,i)
                                 compteur += 1
-                                i.barreHP(background)
-                    
+                            i.barreHP(background)
+                            
+                    for i in vaguesEnnemi: 
+                        if not i.estEnVie():
+                            vaguesEnnemi.remove(i)
                     a.barreHP(background)
                     if vaguesEnnemi == [] or listeCombattants == []:
                         continuer = False
