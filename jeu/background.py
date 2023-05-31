@@ -78,7 +78,7 @@ def combat(vaguesEnnemi,compteur, continuer, listeCombattants, ecran, background
         if gueri == False and choixPersonnage(compteur, listeCombattants).type == "guerrisseur":
             action = "Soigner un allié"
         else:
-            action = "Attaquer un ennemi"
+            action = choixPersonnage(compteur,listeCombattants).pseudo + " attaque un ennemi"
         fontBis = pygame.font.Font(None,int(x*0.05))
         afficherAction = fontBis.render(action,True,(255,255,255))
         afficherActionWidth = afficherAction.get_width()
